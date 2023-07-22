@@ -1,0 +1,251 @@
+<div class="container">
+  <div class="row justify-content-center">
+
+    <!--SI EL GATO EXISTE:-->
+    <div class="col-md-12 mt-2" *ngIf="miCat.id != undefined">
+      <div class="card" >
+        <div class="card-header bg-light">
+          <div class="card-title text-center">
+            <h2 class="fw-bold">{{miCat.name}}</h2>
+          </div>
+        </div>
+
+        <div class="card-body">
+          <div class="row">
+            <!--IMAGEN CON VIDA Y PESO-->
+            <div class="row align-items-center pb-4">
+              <div class="col-md-8 d-flex justify-content-center">
+                <img [src]="'https://cdn2.thecatapi.com/images/'+miCat.reference_image_id + '.jpg'" [alt]="miCat.name"
+                     class="img-thumbnail">
+              </div>
+
+              <div class="col-md-4">
+                <div class="text-center">
+                  <h6><i class="fa-solid fa-shield-cat me-2 text-danger"></i>LIFESPAN</h6>
+                  <h5 class="fw-bold">{{miCat.life_span}} years</h5>
+                </div>
+                <div class="text-center my-5">
+                  <h6><i class="fa-solid fa-scale-balanced me-2 text-danger"></i>WEIGHT</h6>
+                  <h5 class="fw-bold">{{miCat.weight.metric}} kg</h5>
+                </div>
+                <div class="text-center my-5">
+                  <h6><i class="fa-solid fa-earth-americas me-2 text-danger"></i>ORIGIN</h6>
+                  <h5 class="fw-bold">{{miCat.origin}}</h5>
+                </div>
+                <div class="text-center my-5" *ngIf="miCat.alt_names !== ''">
+                  <h6><i class="fa-solid fa-signature me-2 text-danger"></i>ALTERNATIVE NAMES</h6>
+                  <h5 class="fw-bold">{{miCat.alt_names}}</h5>
+                </div>
+
+              </div>
+            </div>
+
+
+            <!--CARACTERÍSTICAS DE LA RAZA-->
+            <div class="container bg-super-light py-4">
+              <div>
+                <h4 class="fw-bold"><i class="fa-regular fa-star me-2 text-danger"></i>Breed Characteristics</h4>
+              </div>
+              <div class="row"> <!--indico que tienen que ser 2 columnas-->
+                <div class="col-md-4">
+                  <div class="row">
+                    <div class="col-6">
+                      <p class="fw-bold">Adaptability</p>
+                    </div>
+                    <div class="col-3">
+                      <ngb-rating class="text-danger" [readonly]=true [max]="5"
+                                  [(rate)]="miCat.adaptability"></ngb-rating>
+                    </div>
+                  </div>
+                </div>
+                <div class="col-md-4">
+                  <div class="row">
+                    <div class="col-6">
+                      <p class="fw-bold">Child Friendly</p>
+                    </div>
+                    <div class="col-3">
+                      <ngb-rating class="text-danger" [readonly]=true [max]="5"
+                                  [(rate)]="miCat.child_friendly"></ngb-rating>
+                    </div>
+                  </div>
+                </div>
+                <div class="col-md-4">
+                  <div class="row">
+                    <div class="col-6">
+                      <p class="fw-bold">Dog Friendly</p>
+                    </div>
+                    <div class="col-3">
+                      <ngb-rating class="text-danger" [readonly]=true [max]="5"
+                                  [(rate)]="miCat.dog_friendly"></ngb-rating>
+                    </div>
+                  </div>
+                </div>
+                <div class="col-md-4">
+                  <div class="row">
+                    <div class="col-6">
+                      <p class="fw-bold">Stranger Friendly</p>
+                    </div>
+                    <div class="col-3">
+                      <ngb-rating class="text-danger" [readonly]=true [max]="5"
+                                  [(rate)]="miCat.stranger_friendly"></ngb-rating>
+                    </div>
+                  </div>
+                </div>
+                <div class="col-md-4">
+                  <div class="row">
+                    <div class="col-6">
+                      <p class="fw-bold">Affectionate</p>
+                    </div>
+                    <div class="col-3">
+                      <ngb-rating class="text-danger" [readonly]=true [max]="5"
+                                  [(rate)]="miCat.affection_level"></ngb-rating>
+                    </div>
+                  </div>
+                </div>
+                <div class="col-md-4">
+                  <div class="row">
+                    <div class="col-6">
+                      <p class="fw-bold">Health Issues</p>
+                    </div>
+                    <div class="col-3">
+                      <ngb-rating class="text-danger" [readonly]=true [max]="5"
+                                  [(rate)]="miCat.health_issues"></ngb-rating>
+                    </div>
+                  </div>
+                </div>
+                <div class="col-md-4">
+                  <div class="row">
+                    <div class="col-6">
+                      <p class="fw-bold">Intelligence</p>
+                    </div>
+                    <div class="col-3">
+                      <ngb-rating class="text-danger" [readonly]=true [max]="5"
+                                  [(rate)]="miCat.intelligence"></ngb-rating>
+                    </div>
+                  </div>
+                </div>
+                <div class="col-md-4">
+                  <div class="row">
+                    <div class="col-6">
+                      <p class="fw-bold">Energy Level</p>
+                    </div>
+                    <div class="col-3">
+                      <ngb-rating class="text-danger" [readonly]=true [max]="5"
+                                  [(rate)]="miCat.energy_level"></ngb-rating>
+                    </div>
+                  </div>
+                </div>
+                <div class="col-md-4">
+                  <div class="row">
+                    <div class="col-6">
+                      <p class="fw-bold">Social Needs</p>
+                    </div>
+                    <div class="col-3">
+                      <ngb-rating class="text-danger" [readonly]=true [max]="5"
+                                  [(rate)]="miCat.social_needs"></ngb-rating>
+                    </div>
+                  </div>
+                </div>
+                <div class="col-md-4">
+                  <div class="row">
+                    <div class="col-6">
+                      <p class="fw-bold">Grooming</p>
+                    </div>
+                    <div class="col-3">
+                      <ngb-rating class="text-danger" [readonly]=true [max]="5" [(rate)]="miCat.grooming"></ngb-rating>
+                    </div>
+                  </div>
+                </div>
+                <div class="col-md-4">
+                  <div class="row">
+                    <div class="col-6">
+                      <p class="fw-bold">Shedding Level</p>
+                    </div>
+                    <div class="col-3">
+                      <ngb-rating class="text-danger" [readonly]=true [max]="5"
+                                  [(rate)]="miCat.shedding_level"></ngb-rating>
+                    </div>
+                  </div>
+                </div>
+                <div class="col-md-4">
+                  <div class="row">
+                    <div class="col-6">
+                      <p class="fw-bold">Vocalisation</p>
+                    </div>
+                    <div class="col-3">
+                      <ngb-rating class="text-danger" [readonly]=true [max]="5"
+                                  [(rate)]="miCat.vocalisation"></ngb-rating>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!--DESCRIPCION-->
+            <div class="col-md-12 py-4">
+              <h4 class="fw-bold"><i class="fa-regular fa-comment me-2 text-danger"></i>Description</h4>
+              <p>{{miCat.description}}</p>
+            </div>
+
+            <!--OTRAS CARACTERÍSTICAS-->
+            <div class="col-md-6 py-2">
+              <h4 class="fw-bold"><i class="fa-solid fa-list-ul me-2 text-danger"></i>Other Characteristics</h4>
+              <ul class="fw-bold">
+                <li *ngIf="miCat.indoor == 0">Indoor<i class="fa-regular fa-circle-check text-success ps-2"></i></li>
+                <li *ngIf="miCat.hairless == 0">Hairless<i class="fa-regular fa-circle-check text-success ps-2"></i>
+                </li>
+                <li *ngIf="miCat.short_legs == 1">Short legs<i class="fa-regular fa-circle-check text-success ps-2"></i>
+                </li>
+                <li *ngIf="miCat.hypoallergenic == 1">Hypoallergenic<i
+                  class="fa-regular fa-circle-check text-success ps-2"></i></li>
+
+                <li *ngIf="miCat.indoor == 1">Indoor<i class="fa-regular fa-circle-xmark text-danger ps-2"></i></li>
+                <li *ngIf="miCat.hairless == 1">Hairless<i class="fa-regular fa-circle-xmark text-danger ps-2"></i></li>
+                <li *ngIf="miCat.short_legs == 0">Short legs<i class="fa-regular fa-circle-xmark text-danger ps-2"></i>
+                </li>
+                <li *ngIf="miCat.hypoallergenic == 0">Hypoallergenic<i
+                  class="fa-regular fa-circle-xmark text-danger ps-2"></i></li>
+              </ul>
+            </div>
+
+            <!--MÁS INFORMACIÓN-->
+            <div class="col-md-6 py-2">
+              <h4 class="fw-bold"><i class="fa-solid fa-arrow-up-right-from-square me-2 text-danger"></i>More
+                information</h4>
+              <ul>
+                <li *ngIf="miCat.vetstreet_url !==''"><a href="{{miCat.vetstreet_url}}" target="_blank"
+                                                         rel="noopener noreferrer">Vetstreet</a></li>
+                <li *ngIf="miCat.vcahospitals_url !== ''"><a href="{{miCat.vcahospitals_url}}" target="_blank"
+                                                             rel="noopener noreferrer">VcaHospitals</a></li>
+                <li *ngIf="miCat.wikipedia_url !== ''"><a href="{{miCat.wikipedia_url}}" target="_blank"
+                                                          rel="noopener noreferrer">Wikipedia</a></li>
+
+              </ul>
+            </div>
+
+          </div>
+
+
+        </div>
+      </div>
+
+
+    </div>
+
+    <!--SI EL GATO NO EXISTE:-->
+    <div class="col-md-6 mt-2" *ngIf="miCat.id == undefined">
+      <div class="card">
+        <div class="card-header bg-light">
+          <div class="card-title text-center">
+            <h2 class="fw-bold text-danger">Id name {{idCat}} doesn't exit.</h2>
+          </div>
+        </div>
+        <div class="card-body justify-content-center">
+          <img src="./assets/Image_not_available.png" alt="Image not exists" class="img-thumbnail">
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+
